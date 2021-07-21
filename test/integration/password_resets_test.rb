@@ -59,7 +59,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
       params: { password_reset: { email: @user.email }}
     
     @user = assigns(:user)
-    @user.update_attribute(:reset_semt_at, 3.hours.ago)
+    @user.update_attribute(:reset_sent_at, 3.hours.ago)
     patch password_reset_path(@user.reset_token),
       params: { email: @user.email,
               user: { password: "foobar",
